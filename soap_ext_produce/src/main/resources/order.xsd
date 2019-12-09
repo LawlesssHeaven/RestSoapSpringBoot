@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.example.org/ImaginaryOutlet" 
+xmlns:tns="http://www.example.org/ImaginaryOutlet" 
+elementFormDefault="qualified">
+
+    <element name="getOrderRequest">
+        <complexType>
+            <sequence>
+						<element name="id" type="string"/>
+						<element name="price" type="int"/>
+						<element name="newItem" type="boolean" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <element name="getOrderResponse">
+        <complexType>
+            <sequence>
+                <element name="status" type="tns:OrderStatus" />
+            </sequence>
+        </complexType>
+    </element>
+    
+	
+    <complexType name="OrderStatus">
+	<sequence>
+		<element name= "status" type="int"/>
+		<element name= "warehouse" type="string"/>
+	</sequence>
+  </complexType>
+  
+
+
+	
+<element name="Order">
+  <complexType>
+	<sequence>
+     <element name="Item" maxOccurs="unbounded">
+      <complexType>
+   	   <sequence>
+      <element name="Id" type="string"/>
+      <element name="Price" type="int"/>
+      <element name="Used" type="boolean" minOccurs="0"/>
+       </sequence>
+      </complexType>
+	 </element>
+	</sequence>
+  </complexType>
+</element>
+
+</schema>
